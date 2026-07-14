@@ -1,0 +1,30 @@
+name: Gate 1 Fact Set
+
+on:
+  push:
+    paths:
+      - "eval/fact_set.json"
+      - "eval/validate_fact_set.py"
+      - ".github/workflows/gate1_fact_set.yml"
+  pull_request:
+    paths:
+      - "eval/fact_set.json"
+      - "eval/validate_fact_set.py"
+      - ".github/workflows/gate1_fact_set.yml"
+  workflow_dispatch:
+
+jobs:
+  validate-fact-set:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate Gate 1 fact set
+        run: python eval/validate_fact_set.py

@@ -1,0 +1,16 @@
+{
+  "name": "research-agent",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "gate1": "python eval/validate_fact_set.py",
+    "validate:fact-set": "python eval/validate_fact_set.py",
+    "phase1": "python scripts/validate_phase1.py",
+    "validate:phase1": "python scripts/validate_phase1.py",
+    "phase2": "python scripts/validate_phase2.py",
+    "validate:phase2": "python scripts/validate_phase2.py",
+    "eval": "python eval/run_eval.py",
+    "phase3": "python scripts/verify_logger.py && python eval/run_eval.py",
+    "validate:phase3": "npm run phase3"
+  }
+}

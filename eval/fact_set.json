@@ -1,0 +1,451 @@
+{
+  "dataset_id": "research_agent_fact_set_v1",
+  "status": "FROZEN_VERIFIED",
+  "frozen_on": "2026-07-01",
+  "frozen_by": "Codex",
+  "governing_document": "Research_Agent_Problem_Statement.md",
+  "notes": [
+    "This fact set was manually reviewed on 2026-07-01 and tightened to align with currently accessible live sources.",
+    "Facts that were weakly supported in the initial scaffold were revised to claims explicitly supported by checked source pages.",
+    "Figma remains in the set with a secondary-source exception because a stable official about page could not be reliably accessed through the available browsing tools during audit."
+  ],
+  "companies": [
+    {
+      "company_name": "Google",
+      "coverage_tier": "high",
+      "facts": [
+        {
+          "fact_id": "google_01",
+          "category": "founded_year",
+          "claim": "Google Inc. was officially born in 1998.",
+          "verification_url": "https://about.google/company-info/our-story/",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "google_02",
+          "category": "hq_location",
+          "claim": "Google says its current headquarters, the Googleplex, are in Mountain View, California.",
+          "verification_url": "https://about.google/company-info/our-story/",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "google_03",
+          "category": "primary_business",
+          "claim": "Google highlights search, cloud, AI, research, and developer products in its company information pages.",
+          "verification_url": "https://about.google/company-info/",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "Microsoft",
+      "coverage_tier": "high",
+      "facts": [
+        {
+          "fact_id": "microsoft_01",
+          "category": "founded_year",
+          "claim": "Microsoft was founded in 1975.",
+          "verification_url": "https://news.microsoft.com/facts-about-microsoft/",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "microsoft_02",
+          "category": "hq_location",
+          "claim": "Microsoft's corporate address is in Redmond, Washington.",
+          "verification_url": "https://news.microsoft.com/facts-about-microsoft/",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "microsoft_03",
+          "category": "primary_business",
+          "claim": "Microsoft says it creates platforms and tools powered by AI.",
+          "verification_url": "https://news.microsoft.com/facts-about-microsoft/",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "Apple",
+      "coverage_tier": "high",
+      "facts": [
+        {
+          "fact_id": "apple_01",
+          "category": "product_portfolio",
+          "claim": "Apple's homepage lists Mac, iPad, iPhone, Watch, Vision, AirPods, TV & Home, and Accessories among its core product categories.",
+          "verification_url": "https://www.apple.com/",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "apple_02",
+          "category": "services_portfolio",
+          "claim": "Apple's site lists services and entertainment offerings including Apple TV, Apple Music, Apple Arcade, Apple Fitness+, Apple News+, Apple Podcasts, Apple Books, and the App Store.",
+          "verification_url": "https://www.apple.com/",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "apple_03",
+          "category": "retail_channel",
+          "claim": "Apple says customers can buy products through Apple.com and Apple Retail Stores.",
+          "verification_url": "https://www.apple.com/contact/",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "Amazon",
+      "coverage_tier": "high",
+      "facts": [
+        {
+          "fact_id": "amazon_01",
+          "category": "mission",
+          "claim": "Amazon says its mission is to make customers' lives better and easier every day by relentlessly inventing on their behalf.",
+          "verification_url": "https://www.aboutamazon.com/about-us",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "amazon_02",
+          "category": "primary_business",
+          "claim": "Amazon says it operates across online shopping, cloud computing, streaming entertainment, consumer electronic devices, advertising, healthcare, AI services, and more.",
+          "verification_url": "https://www.aboutamazon.com/about-us",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "amazon_03",
+          "category": "leadership",
+          "claim": "Amazon's About page names Andy Jassy as CEO.",
+          "verification_url": "https://www.aboutamazon.com/about-us",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "NVIDIA",
+      "coverage_tier": "high",
+      "facts": [
+        {
+          "fact_id": "nvidia_01",
+          "category": "core_positioning",
+          "claim": "NVIDIA says it pioneered accelerated computing.",
+          "verification_url": "https://www.nvidia.com/en-us/about-nvidia/",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "nvidia_02",
+          "category": "ai_business",
+          "claim": "NVIDIA says it engineers chips, systems, and software for AI factories of the future.",
+          "verification_url": "https://www.nvidia.com/en-us/about-nvidia/",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "nvidia_03",
+          "category": "platforms",
+          "claim": "NVIDIA highlights RTX for AI-powered graphics and Omniverse for industrial digitalization on its About page.",
+          "verification_url": "https://www.nvidia.com/en-us/about-nvidia/",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "Salesforce",
+      "coverage_tier": "high",
+      "facts": [
+        {
+          "fact_id": "salesforce_01",
+          "category": "founded_year",
+          "claim": "Salesforce says it has been focused on helping companies connect with customers since 1999.",
+          "verification_url": "https://www.salesforce.com/company/",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "salesforce_02",
+          "category": "core_positioning",
+          "claim": "Salesforce describes itself as the #1 Agentic CRM.",
+          "verification_url": "https://www.salesforce.com/company/",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "salesforce_03",
+          "category": "primary_business",
+          "claim": "Salesforce says it pioneered cloud-based CRM as software as a service.",
+          "verification_url": "https://www.salesforce.com/company/",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "Adobe",
+      "coverage_tier": "high",
+      "facts": [
+        {
+          "fact_id": "adobe_01",
+          "category": "founded_year",
+          "claim": "Adobe says its history began in 1982, when John Warnock and Charles Geschke founded the company.",
+          "verification_url": "https://www.adobe.com/about-adobe.html",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "adobe_02",
+          "category": "product_legacy",
+          "claim": "Adobe says PDF and Adobe Acrobat ushered in a new era of document productivity in 1993.",
+          "verification_url": "https://www.adobe.com/about-adobe.html",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "adobe_03",
+          "category": "primary_business",
+          "claim": "Adobe says it helps customers imagine, create, and bring digital experiences to life.",
+          "verification_url": "https://www.adobe.com/about-adobe.html",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "Shopify",
+      "coverage_tier": "high",
+      "facts": [
+        {
+          "fact_id": "shopify_01",
+          "category": "primary_business",
+          "claim": "Shopify says it is a complete commerce platform to sell online or in person.",
+          "verification_url": "https://www.shopify.com/about",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "shopify_02",
+          "category": "store_creation",
+          "claim": "Shopify says merchants can choose from 200+ pre-built themes or build from scratch.",
+          "verification_url": "https://www.shopify.com/about",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "shopify_03",
+          "category": "sales_channels",
+          "claim": "Shopify says sellers can launch stores and sync products to marketplaces and social platforms.",
+          "verification_url": "https://www.shopify.com/about",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "Databricks",
+      "coverage_tier": "medium",
+      "facts": [
+        {
+          "fact_id": "databricks_01",
+          "category": "founded_year",
+          "claim": "Databricks was founded in 2013.",
+          "verification_url": "https://www.databricks.com/company/about-us",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "databricks_02",
+          "category": "hq_location",
+          "claim": "Databricks says it is headquartered in San Francisco.",
+          "verification_url": "https://www.databricks.com/company/about-us",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "databricks_03",
+          "category": "primary_business",
+          "claim": "Databricks describes itself as a data and AI company built around lakehouse architecture and a data intelligence platform.",
+          "verification_url": "https://www.databricks.com/company/about-us",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "Figma",
+      "coverage_tier": "medium",
+      "facts": [
+        {
+          "fact_id": "figma_01",
+          "category": "founded_year",
+          "claim": "Figma was founded in 2012.",
+          "verification_url": "https://en.wikipedia.org/wiki/Figma",
+          "source_class": "secondary"
+        },
+        {
+          "fact_id": "figma_02",
+          "category": "primary_business",
+          "claim": "Figma is a collaborative web application for interface design and prototyping.",
+          "verification_url": "https://en.wikipedia.org/wiki/Figma",
+          "source_class": "secondary"
+        },
+        {
+          "fact_id": "figma_03",
+          "category": "collaboration",
+          "claim": "Figma emphasizes collaborative design workflows with web-based editing and real-time collaboration.",
+          "verification_url": "https://en.wikipedia.org/wiki/Figma",
+          "source_class": "secondary"
+        }
+      ]
+    },
+    {
+      "company_name": "Notion",
+      "coverage_tier": "medium",
+      "facts": [
+        {
+          "fact_id": "notion_01",
+          "category": "company_story",
+          "claim": "Notion says it created the product to break away from fragmented work tools and bring workflow into one place.",
+          "verification_url": "https://www.notion.com/about",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "notion_02",
+          "category": "primary_product",
+          "claim": "Notion says its workspace can combine tasks, roadmaps, and design repositories in an all-in-one workspace.",
+          "verification_url": "https://www.notion.com/about",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "notion_03",
+          "category": "hq_location",
+          "claim": "Notion says it is based in downtown San Francisco.",
+          "verification_url": "https://www.notion.com/about",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "Vercel",
+      "coverage_tier": "medium",
+      "facts": [
+        {
+          "fact_id": "vercel_01",
+          "category": "core_positioning",
+          "claim": "Vercel says it is agentic infrastructure for every app and agent.",
+          "verification_url": "https://vercel.com/about",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "vercel_02",
+          "category": "platform_model",
+          "claim": "Vercel says it is the platform where humans and agents build software together.",
+          "verification_url": "https://vercel.com/about",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "vercel_03",
+          "category": "tooling",
+          "claim": "Vercel's About page lists tools including Next.js, Vercel Agent, Vercel Plugin, Domains, and v0.",
+          "verification_url": "https://vercel.com/about",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "Anthropic",
+      "coverage_tier": "medium",
+      "facts": [
+        {
+          "fact_id": "anthropic_01",
+          "category": "company_type",
+          "claim": "Anthropic says it is an AI safety and research company.",
+          "verification_url": "https://www.anthropic.com/company",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "anthropic_02",
+          "category": "product_goal",
+          "claim": "Anthropic says it builds reliable, interpretable, and steerable AI systems.",
+          "verification_url": "https://www.anthropic.com/company",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "anthropic_03",
+          "category": "governance_and_products",
+          "claim": "Anthropic says it is a Public Benefit Corporation and lists Claude among its products.",
+          "verification_url": "https://www.anthropic.com/company",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "PostHog",
+      "coverage_tier": "thin",
+      "adversarial_case": true,
+      "facts": [
+        {
+          "fact_id": "posthog_01",
+          "category": "launch_timing",
+          "claim": "PostHog says it launched its MVP on Hacker News in 2020.",
+          "verification_url": "https://posthog.com/about",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "posthog_02",
+          "category": "primary_business",
+          "claim": "PostHog says it grew beyond analytics into an entire product and data toolkit.",
+          "verification_url": "https://posthog.com/about",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "posthog_03",
+          "category": "open_source_profile",
+          "claim": "PostHog says its products and codebase are open source and publicly auditable.",
+          "verification_url": "https://posthog.com/about",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "Linear",
+      "coverage_tier": "thin",
+      "adversarial_case": true,
+      "facts": [
+        {
+          "fact_id": "linear_01",
+          "category": "founded_year",
+          "claim": "Linear says it was founded in 2019.",
+          "verification_url": "https://linear.app/about",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "linear_02",
+          "category": "primary_business",
+          "claim": "Linear says it is building tools for the next era of product development.",
+          "verification_url": "https://linear.app/about",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "linear_03",
+          "category": "adoption",
+          "claim": "Linear says more than 33,000 companies use it to plan, build, and ship products.",
+          "verification_url": "https://linear.app/about",
+          "source_class": "official"
+        }
+      ]
+    },
+    {
+      "company_name": "Langfuse",
+      "coverage_tier": "thin",
+      "adversarial_case": true,
+      "facts": [
+        {
+          "fact_id": "langfuse_01",
+          "category": "company_origin",
+          "claim": "Langfuse says it first encountered LLM pains during Y Combinator's W23 batch in San Francisco.",
+          "verification_url": "https://langfuse.com/about",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "langfuse_02",
+          "category": "primary_business",
+          "claim": "Langfuse says it is building an open source AI engineering platform for production-grade LLM applications.",
+          "verification_url": "https://langfuse.com/about",
+          "source_class": "official"
+        },
+        {
+          "fact_id": "langfuse_03",
+          "category": "office_footprint",
+          "claim": "Langfuse says it has a larger office in Berlin and a smaller office in San Francisco.",
+          "verification_url": "https://langfuse.com/about",
+          "source_class": "official"
+        }
+      ]
+    }
+  ],
+  "audited_on": "2026-07-01",
+  "audit_method": "Manual live source review using official company pages where available; one documented secondary-source exception for Figma."
+}
