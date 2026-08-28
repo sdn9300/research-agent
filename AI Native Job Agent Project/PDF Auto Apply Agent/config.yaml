@@ -1,0 +1,66 @@
+# CONDUCTOR Component 7 — PDF Auto-Apply Agent ("Usher") Configuration
+app_name: "Usher - PDF Auto-Apply Agent"
+version: "1.0.0"
+
+# Core Operational Modes & Thresholds
+default_submission_mode: "draft"      # Options: draft, auto, skip
+confidence_threshold: 0.85            # Minimum score to auto-fill a field without manual review
+
+# Platform Priority Order
+platform_priority:
+  - "naukri"
+  - "indeed"
+  - "linkedin_easy_apply"
+  - "generic_ats_greenhouse"
+  - "generic_ats_lever"
+  - "generic_ats_workday"
+  - "generic_ats_unknown"
+
+# Explicitly excluded platforms (per EC-PAA-ETH-01 policy)
+excluded_platforms: []
+
+# Execution Directories
+session_storage_dir: "sessions"
+attempts_dir: "attempts"
+screenshots_dir: "attempts/screenshots"
+
+# Browser Configuration (Playwright)
+browser:
+  headless: true
+  slow_mo_ms: 100
+  timeout_ms: 30000
+  viewport:
+    width: 1280
+    height: 800
+
+# Rate Limiting & Circuit Breaker (per EC-PAA-SEC-03)
+rate_limits:
+  max_attempts_per_session: 15
+  cooldown_seconds: 300
+  max_consecutive_failures: 3
+
+# Trust Graduation Configuration (Evaluation Plan §5, PAA-AD-1.0 §8)
+graduation:
+  state_file: "attempts/graduation_state.json"
+  default_threshold: 10
+  platform_thresholds:
+    naukri: 10
+    indeed: 10
+    linkedin_easy_apply: 15
+
+# Groq LLM Routing & Cost Tracking
+groq:
+  light_model: "llama-3.1-8b-instant"       # Tier 2 label classification ($0.05/1M tokens)
+  heavy_model: "llama-3.3-70b-versatile"     # Tier 3 free-text synthesis ($0.59/1M tokens)
+  temperature: 0.2
+
+# Audit & Screenshot Retention Policy (Phase 5)
+retention:
+  max_screenshot_age_days: 30
+  max_attempt_log_age_days: 90
+  auto_cleanup_enabled: true
+
+# Adapter Health Check Settings (Evaluation Plan §6)
+health_check:
+  timeout_ms: 10000
+  mock_dom_check_enabled: true

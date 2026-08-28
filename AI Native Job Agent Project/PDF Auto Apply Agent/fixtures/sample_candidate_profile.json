@@ -1,0 +1,50 @@
+{
+  "candidate_id": "sdn9300",
+  "full_name": "Soumyadeep Nath",
+  "email": "soumyadeep@example.com",
+  "phone": "+91 98765 43210",
+  "location": "Kolkata, West Bengal, India",
+  "portfolio_url": "https://soumyadeepnath.dev",
+  "github_url": "https://github.com/sdn9300",
+  "linkedin_url": "https://linkedin.com/in/sdn9300",
+  "education": [
+    {
+      "institution": "Techno Main Salt Lake",
+      "degree": "Bachelor of Technology",
+      "field_of_study": "Computer Science and Engineering",
+      "start_year": 2021,
+      "end_year": 2025,
+      "percentage_or_cgpa": "8.7 CGPA"
+    }
+  ],
+  "experience": [
+    {
+      "company": "AI Native Systems Lab",
+      "role": "AI Engineer & Agent Architect",
+      "start_date": "2025-06",
+      "end_date": null,
+      "is_current": true,
+      "location": "Remote, India",
+      "highlights": [
+        "Architected multi-agent job orchestration system using LangGraph and Playwright.",
+        "Built automated resume tailoring pipeline achieving sub-90s generation time."
+      ]
+    }
+  ],
+  "skills": [
+    "Python",
+    "LangGraph",
+    "Multi-Agent Systems",
+    "Playwright",
+    "Pydantic",
+    "FastAPI",
+    "Docker",
+    "PostgreSQL",
+    "TypeScript"
+  ],
+  "salary_expectation": "12 LPA",
+  "notice_period": "Immediate / 15 Days",
+  "work_authorization": "Authorized to work in India without sponsorship",
+  "last_verified_at": "2026-08-27T10:00:00Z",
+  "version_hash": "a1b2c3d4e5f67890"
+}

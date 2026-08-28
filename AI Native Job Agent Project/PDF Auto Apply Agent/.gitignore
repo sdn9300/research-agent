@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+attempts/screenshots/*.png
+attempts/*.json
+attempts/audit_log.jsonl
+sessions/*_state.json

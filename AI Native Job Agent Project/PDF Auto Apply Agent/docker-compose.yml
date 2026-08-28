@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  usher:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: usher-auto-apply
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    volumes:
+      - ./attempts:/app/attempts
+      - ./sessions:/app/sessions
+      - ./fixtures:/app/fixtures
+    restart: unless-stopped
+    command: ["python", "-m", "usher.cli", "status"]
