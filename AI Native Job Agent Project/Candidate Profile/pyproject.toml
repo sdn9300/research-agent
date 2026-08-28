@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "conductor-candidate-profile"
+version = "1.0.0"
+description = "Canonical versioned candidate profile JSON data layer for CONDUCTOR"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.0.0",
+    "email-validator>=2.0.0",
+    "prometheus_client>=0.20.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "langgraph>=0.2.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["candidate_profile*"]

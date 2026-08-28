@@ -1,0 +1,214 @@
+{
+  "profile_metadata": {
+    "candidate_id": "c1f72b9a-4c28-4e89-9a25-8321e06d9a10",
+    "schema_version": "1.0.0",
+    "created_at": "2026-08-28T10:00:00Z",
+    "updated_at": "2026-08-28T10:00:00Z",
+    "last_writer_component": "bootstrap_manual"
+  },
+  "identity": {
+    "legal_name": "Soumyadeep Nath",
+    "location": "Remote / Hybrid",
+    "contact": {
+      "email": "soumyadeepnath@example.com",
+      "phone": "+91-9876543210",
+      "linkedin": "https://www.linkedin.com/in/sdn9300",
+      "github": "https://github.com/sdn9300",
+      "portfolio": null
+    }
+  },
+  "education": [
+    {
+      "institution": "Techno Main Salt Lake",
+      "program": "Bachelor of Technology in Computer Science and Engineering",
+      "status": "completed",
+      "start_date": "2020-08",
+      "end_date": "2024-06",
+      "honors": "First Class with Distinction"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Python",
+      "taxonomy_ref": "python",
+      "proficiency_self_assessed": "advanced",
+      "evidence_refs": ["conductor-agent", "overture"],
+      "source": {
+        "source_type": "resume_v12",
+        "source_ref": "master_resume.txt",
+        "verified": true,
+        "recorded_at": "2026-08-28T10:00:00Z"
+      }
+    },
+    {
+      "name": "LangGraph",
+      "taxonomy_ref": "langgraph",
+      "proficiency_self_assessed": "advanced",
+      "evidence_refs": ["conductor-agent"],
+      "source": {
+        "source_type": "resume_v12",
+        "source_ref": "master_resume.txt",
+        "verified": true,
+        "recorded_at": "2026-08-28T10:00:00Z"
+      }
+    },
+    {
+      "name": "TypeScript",
+      "taxonomy_ref": "typescript",
+      "proficiency_self_assessed": "intermediate",
+      "evidence_refs": ["align-resume"],
+      "source": {
+        "source_type": "resume_v12",
+        "source_ref": "master_resume.txt",
+        "verified": true,
+        "recorded_at": "2026-08-28T10:00:00Z"
+      }
+    },
+    {
+      "name": "Next.js",
+      "taxonomy_ref": "nextjs",
+      "proficiency_self_assessed": "intermediate",
+      "evidence_refs": ["align-resume", "overture"],
+      "source": {
+        "source_type": "resume_v12",
+        "source_ref": "master_resume.txt",
+        "verified": true,
+        "recorded_at": "2026-08-28T10:00:00Z"
+      }
+    },
+    {
+      "name": "Docker",
+      "taxonomy_ref": "docker",
+      "proficiency_self_assessed": "intermediate",
+      "evidence_refs": ["conductor-agent", "overture"],
+      "source": {
+        "source_type": "resume_v12",
+        "source_ref": "master_resume.txt",
+        "verified": true,
+        "recorded_at": "2026-08-28T10:00:00Z"
+      }
+    },
+    {
+      "name": "Kubernetes",
+      "taxonomy_ref": "kubernetes",
+      "proficiency_self_assessed": "early_practical",
+      "evidence_refs": ["conductor-agent"],
+      "source": {
+        "source_type": "resume_v12",
+        "source_ref": "master_resume.txt",
+        "verified": true,
+        "recorded_at": "2026-08-28T10:00:00Z"
+      }
+    },
+    {
+      "name": "Pydantic v2",
+      "taxonomy_ref": "pydantic",
+      "proficiency_self_assessed": "advanced",
+      "evidence_refs": ["conductor-agent", "candidate-profile"],
+      "source": {
+        "source_type": "resume_v12",
+        "source_ref": "master_resume.txt",
+        "verified": true,
+        "recorded_at": "2026-08-28T10:00:00Z"
+      }
+    },
+    {
+      "name": "FastAPI",
+      "taxonomy_ref": "fastapi",
+      "proficiency_self_assessed": "intermediate",
+      "evidence_refs": ["conductor-agent"],
+      "source": {
+        "source_type": "resume_v12",
+        "source_ref": "master_resume.txt",
+        "verified": true,
+        "recorded_at": "2026-08-28T10:00:00Z"
+      }
+    }
+  ],
+  "experience": [
+    {
+      "title": "Conductor Agent (Lead Architect & Developer)",
+      "kind": "project",
+      "stack": ["Python", "LangGraph", "Docker", "Kubernetes", "Prometheus", "Grafana", "FastAPI", "SQLite", "pytest"],
+      "bullets": [
+        "Engineered the central LangGraph state machine coordinating a 10-component AI-Native Job Search system across multi-board scraping, company research, resume tailoring, and multi-channel dispatch.",
+        "Enforced an ADR-6 structural Human-in-the-Loop approval gate ensuring zero unreviewed outbound communication or form submission.",
+        "Implemented an automated deduplication engine and 30-day rejection cooldown feedback loop, slashing redundant LLM API overhead and protecting candidate reputation.",
+        "Hardened with multi-stage Docker containerization, Kubernetes Deployments/CronJobs, real-time Prometheus (:8001/metrics) telemetry, Grafana dashboards, and 47 passing unit/integration tests."
+      ],
+      "live_url": null,
+      "repo_url": "https://github.com/sdn9300/conductor-agent",
+      "source": {
+        "source_type": "resume_v12",
+        "source_ref": "master_resume.txt",
+        "verified": true,
+        "recorded_at": "2026-08-28T10:00:00Z"
+      }
+    },
+    {
+      "title": "AlignResume (AI-Powered Resume Optimization Platform)",
+      "kind": "project",
+      "stack": ["Next.js", "TypeScript", "Zod", "Groq API", "LLaMA 3.3 70B", "Playwright", "Vercel"],
+      "bullets": [
+        "Architected an end-to-end full-stack AI web app in Next.js & TypeScript executing real-time resume tailoring and ATS gap analysis against job descriptions.",
+        "Deployed a truthfulness guardrail layer using Zod and Groq API (LLaMA 3.3 70B) to eliminate LLM hallucinations.",
+        "Deployed Playwright headless PDF generation and IP-based rate limiting on Vercel."
+      ],
+      "live_url": "https://align-resume-beta.vercel.app/",
+      "repo_url": "https://github.com/sdn9300/align-resume",
+      "source": {
+        "source_type": "resume_v12",
+        "source_ref": "master_resume.txt",
+        "verified": true,
+        "recorded_at": "2026-08-28T10:00:00Z"
+      }
+    },
+    {
+      "title": "Overture (Smart Cold Email Outreach Platform)",
+      "kind": "project",
+      "stack": ["Python", "Next.js", "OAuth2", "Gmail API", "Redis", "Prometheus", "pytest", "Docker"],
+      "bullets": [
+        "Developed a modular Python + Next.js cold outreach bot featuring dual-stage prompt formatting and tone polishing.",
+        "Secured OAuth2 Gmail API integration, asynchronous Redis queueing, and Prometheus runtime telemetry."
+      ],
+      "live_url": "https://frontend-three-azure-97.vercel.app/",
+      "repo_url": "https://github.com/sdn9300/Overture-Outreach",
+      "source": {
+        "source_type": "resume_v12",
+        "source_ref": "master_resume.txt",
+        "verified": true,
+        "recorded_at": "2026-08-28T10:00:00Z"
+      }
+    }
+  ],
+  "preferences": {
+    "target_roles": [
+      "AI Engineer",
+      "Agentic Systems Engineer",
+      "Full Stack Developer",
+      "Backend Engineer"
+    ],
+    "target_industries": [
+      "Artificial Intelligence",
+      "SaaS",
+      "Developer Tools",
+      "Automation"
+    ],
+    "locations": [
+      "Remote",
+      "Bangalore",
+      "Hyderabad",
+      "Hybrid"
+    ],
+    "remote_ok": true,
+    "seniority_qualifiers": [
+      "Junior",
+      "Mid-Level",
+      "Fresher"
+    ]
+  },
+  "tailoring_history": [],
+  "outreach_history": [],
+  "application_history": [],
+  "interaction_signals": []
+}
