@@ -42,7 +42,7 @@ These carry over directly from the operating principles already established acro
 - KR3: Zero fabricated or incorrect data reaching a real submission, for the life of the project (hard gate).
 
 **Objective 2 — Prove the CONDUCTOR orchestration pattern end-to-end.**
-- KR1: One fully orchestrated Harvester → AlignResume → Auto-Apply → Memory Module run completes with no manual glue code, by Phase 4 exit.
+- KR1: One fully orchestrated Gleaner → AlignResume → Auto-Apply → Memory Module run completes with no manual glue code, by Phase 4 exit.
 - KR2: Component 7 is invocable as a discrete node/tool compatible with the LangGraph-based Conductor shape defined in the candidate's Mission & Long-Term Plan v1.5, §10.6.
 
 **Objective 3 — Build durable, reusable automation infrastructure for the wider portfolio.**
@@ -68,7 +68,7 @@ Consistent with the military-style planning already used across the candidate's 
 
 | Gate | Condition to proceed | If not met |
 |---|---|---|
-| Phase 0 → 1 | Candidate Profile JSON and Harvester schema dependencies (Problem Statement §10) reconciled, even provisionally. | Hold Phase 1; do not begin adapter code against an unstable contract. |
+| Phase 0 → 1 | Candidate Profile JSON and Gleaner schema dependencies (Problem Statement §10) reconciled, even provisionally. | Hold Phase 1; do not begin adapter code against an unstable contract. |
 | Phase 1 → 2 | Phase 1 exit gate met (see roadmap table). | Extend Phase 1; diagnose root cause of any shortfall before adding a second platform. |
 | Any platform → AUTO mode | Trust-graduation threshold met for that specific platform (Evaluation Plan §5). | That platform remains DRAFT-only indefinitely — there is no time-based override. |
 | Any platform, at any time | A Platform Standing incident occurs (account flag/warning — Edge Case `EC-PAA-SEC-04`). | Immediate, manual rollback to DRAFT-only; AUTO mode requires explicit re-approval, not automatic restoration. |

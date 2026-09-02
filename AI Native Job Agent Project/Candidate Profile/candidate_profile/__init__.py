@@ -72,6 +72,14 @@ from candidate_profile.observability import (
     record_schema_version,
     record_validation_failure,
 )
+from candidate_profile.server import (
+    check_skill_provenance,
+    create_mcp_server,
+    get_candidate_profile,
+    get_candidate_projection,
+    mcp,
+    patch_candidate_section,
+)
 
 __all__ = [
     # Canonical Models
@@ -138,4 +146,11 @@ __all__ = [
     "record_schema_version",
     "check_schema_version_drift",
     "compute_taxonomy_coverage",
+    # FastMCP Server & Tools
+    "mcp",
+    "create_mcp_server",
+    "get_candidate_profile",
+    "get_candidate_projection",
+    "patch_candidate_section",
+    "check_skill_provenance",
 ]

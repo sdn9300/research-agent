@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 artifacts/
 skill_trend_analysis/
 eval/results/
@@ -5,3 +6,38 @@ observability/*.db
 **/__pycache__/
 *.pyc
 *.db
+=======
+# Environments & Secrets
+.env
+.env.*
+!.env.example
+secrets.toml
+token.json
+credentials.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+ENV/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+!test_*.db
+
+# Temporary & OS files
+.DS_Store
+Thumbs.db
+.tmp.driveupload/
+*.log
+>>>>>>> 14afa20 (feat: rebrand to CareerHelm and Gleaner with complete CareerOS Platform blueprint and W4-S2 updates)

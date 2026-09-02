@@ -36,7 +36,7 @@ To define, implement, and harden a single canonical, versioned representation of
 |                                                                                                   |
 |  [10] Candidate Profile JSON Engine (Master Anchor)                                               |
 |       │                                                                                           |
-|       ├──► to_search_criteria()    ──► [1] The Harvester (Reads preferences)                      |
+|       ├──► to_search_criteria()    ──► [1] The Gleaner (Reads preferences)                      |
 |       ├──► to_resume_profile()     ──► [2] AlignResume (Reads facts, writes tailoring_history)    |
 |       ├──► to_outreach_context()    ──► [3] Overture Outreach (Reads contact, writes outreach_hist)|
 |       ├──► preferences             ──► [4] Research Agent (Reads target industry/roles)          |
@@ -50,7 +50,7 @@ To define, implement, and harden a single canonical, versioned representation of
 ```
 
 ### Circularity Verification
-- **Harvester ↔ AlignResume:** Harvester reads `preferences`; AlignResume reads candidate facts. Neither depends on the other through Candidate Profile.
+- **Gleaner ↔ AlignResume:** Gleaner reads `preferences`; AlignResume reads candidate facts. Neither depends on the other through Candidate Profile.
 - **AlignResume ↔ Usher:** Usher reads `tailoring_history` (written by AlignResume); Usher writes `application_history`. One-way flow, zero cycle.
 - **Candidate Profile ↔ Memory Module:** Candidate Profile uses Memory Module's storage engine; Memory Module stores opaque `candidate_id` foreign key. Clean layered boundary.
 
@@ -73,7 +73,7 @@ To define, implement, and harden a single canonical, versioned representation of
 - [x] Canonical Pydantic v2.0 models implemented with `extra="forbid"`.
 - [x] All 6 Hard-Blocking Evaluation Gates (HG-1 to HG-6) passing in pytest suite.
 - [x] Real resume data fixture validates with 100% fidelity and 0 schema patches.
-- [x] Mechanical projection adapters implemented for AlignResume, Harvester, Overture, and Usher.
+- [x] Mechanical projection adapters implemented for AlignResume, Gleaner, Overture, and Usher.
 - [x] Atomic persistence contract with Memory Module verified via crash-simulation test.
 - [x] LangGraph state reducer (`merge_candidate_profile`) tested against adversarial ownership violations.
-- [x] Formally unblocks Usher (PDF Auto-Apply) Phase 0 and Harvester Phase 0.
+- [x] Formally unblocks Usher (PDF Auto-Apply) Phase 0 and Gleaner Phase 0.

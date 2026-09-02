@@ -34,7 +34,7 @@
 |---|---|---|---|
 | **EC-CP-CONC-01** | Two LangGraph branches append to same history section in same tick | High | Append-only merge is commutative and keyed by `run_id`; reducer handles list concatenation safely. |
 | **EC-CP-CONC-02** | Process killed mid-write (temp file created, rename incomplete) | High | Atomic OS rename guarantees original file is untouched; orphaned `.tmp` file is ignored on restart. |
-| **EC-CP-CONC-03** | Unauthorized section write (e.g. Harvester attempts to modify `skills`) | Critical | Reducer raises `OwnershipViolationError`; zero mutation applied; logged to MG-4 telemetry. |
+| **EC-CP-CONC-03** | Unauthorized section write (e.g. Gleaner attempts to modify `skills`) | Critical | Reducer raises `OwnershipViolationError`; zero mutation applied; logged to MG-4 telemetry. |
 
 ### Category C: Version Migration
 
@@ -55,7 +55,7 @@
 | ID | Scenario | Severity | Architectural Handling |
 |---|---|---|---|
 | **EC-CP-INT-01** | Usher reads `tailoring_history` before AlignResume has ever run | Medium | Empty list `[]` is valid typed state; Usher safely skips tailoring-ref lookup. |
-| **EC-CP-INT-02** | Harvester reads `target_roles` before bootstrap preferences populated | Medium | `target_roles` has `min_length=1`; bootstrap fails loud rather than allowing unconstrained scraping. |
+| **EC-CP-INT-02** | Gleaner reads `target_roles` before bootstrap preferences populated | Medium | `target_roles` has `min_length=1`; bootstrap fails loud rather than allowing unconstrained scraping. |
 | **EC-CP-INT-03** | Future-Fit renames taxonomy slugs, orphaning existing `taxonomy_ref` | Medium | References validated at write time; orphaned refs surfaced via MG-5 drift telemetry and reconciled manually. |
 
 ### Category F: Multi-Tenant & Identity Initialization

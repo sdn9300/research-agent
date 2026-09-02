@@ -14,11 +14,11 @@
 
 ## 1. Problem Context
 
-CONDUCTOR / UNIFIED CAREEROS is architected as ten LangGraph-compatible components coordinating around a shared state object. Nine of those components — The Harvester [1], AlignResume [2], Overture [3], Research Agent [4], Future Fit [5], MCP Chief of Staff [6], Usher (PDF Auto-Apply Agent) [7], Memory Module [8], and Sentiment Classifier [9] — are process nodes: each discovers, transforms, or acts on candidate-related data, but none of them *is* the candidate.
+CONDUCTOR / UNIFIED CAREEROS is architected as ten LangGraph-compatible components coordinating around a shared state object. Nine of those components — The Gleaner [1], AlignResume [2], Overture [3], Research Agent [4], Future Fit [5], MCP Chief of Staff [6], Usher (PDF Auto-Apply Agent) [7], Memory Module [8], and Sentiment Classifier [9] — are process nodes: each discovers, transforms, or acts on candidate-related data, but none of them *is* the candidate.
 
 Historically, each treated "the candidate" as an external, informally-shaped input:
 - AlignResume shipped its own `ResumeProfile` domain model, built before any canonical candidate schema existed.
-- Usher (PDF Auto-Apply) explicitly named two open schema dependencies blocking its Phase 0 sign-off: Harvester's canonical job-field names, and Candidate Profile JSON's finalized shape.
+- Usher (PDF Auto-Apply) explicitly named two open schema dependencies blocking its Phase 0 sign-off: Gleaner's canonical job-field names, and Candidate Profile JSON's finalized shape.
 - Overture Outreach and Chief of Staff parsed contact and profile facts from disparate text fields.
 
 This is the standard N-consumers / no-schema failure mode: every component built against an implicit contract encodes its own private assumptions, and those assumptions silently diverge the moment a second component makes a different one. The failure surfaces as fabricated resume claims, broken ATS field mappings, or duplicate applications.
@@ -29,7 +29,7 @@ This is the standard N-consumers / no-schema failure mode: every component built
 
 CONDUCTOR has historically lacked a single, versioned, validated, and anti-fabrication-guarded representation of the candidate that its process components can safely read from and write to.
 
-This document formalizes **Candidate Profile JSON [10]**, resolving the active schema blocker for **Usher (#7) Phase 0** and **The Harvester (#1) Phase 0**, and establishing the immutable truth anchor for all downstream resume tailoring, outreach generation, and automated ATS application submissions.
+This document formalizes **Candidate Profile JSON [10]**, resolving the active schema blocker for **Usher (#7) Phase 0** and **The Gleaner (#1) Phase 0**, and establishing the immutable truth anchor for all downstream resume tailoring, outreach generation, and automated ATS application submissions.
 
 ---
 
@@ -37,7 +37,7 @@ This document formalizes **Candidate Profile JSON [10]**, resolving the active s
 
 Two concrete forcing functions:
 1. **Usher (#7) is schema-blocked today:** Its Phase 0 sign-off cannot proceed until the Candidate Profile shape is finalized. This specification directly resolves that blocker.
-2. **The Harvester (#1) is the next scheduled build:** Harvester's search parameterization requires a structured source of truth for candidate role, location, and seniority preferences (`preferences`). Sequencing this spec ahead of Harvester implementation avoids schema inversion where scraper column names dictate candidate identity.
+2. **The Gleaner (#1) is the next scheduled build:** Gleaner's search parameterization requires a structured source of truth for candidate role, location, and seniority preferences (`preferences`). Sequencing this spec ahead of Gleaner implementation avoids schema inversion where scraper column names dictate candidate identity.
 3. **Memory Module (#8) v2.0 is complete:** Memory Module's storage engine and FastMCP tool mesh are now fully specified, providing a concrete persistence substrate for Candidate Profile.
 
 ---
@@ -46,7 +46,7 @@ Two concrete forcing functions:
 
 | Component | Status (Aug 2026) | Relationship to Candidate Profile | Consequence of Continued Absence |
 |---|---|---|---|
-| **[1] Harvester** | Spec complete | Read-only consumer of `preferences` (via `to_search_criteria()`) | Search criteria hand-coded per run, not centrally editable |
+| **[1] Gleaner** | Spec complete | Read-only consumer of `preferences` (via `to_search_criteria()`) | Search criteria hand-coded per run, not centrally editable |
 | **[2] AlignResume** | Live, deployed (Vercel) | Heavy read consumer (`identity`, `education`, `skills`, `experience`); writer of `tailoring_history` | `ResumeProfile` stays a hand-maintained duplicate, permanently drift-prone |
 | **[3] Overture Outreach** | Implemented (pytest, Docker) | Read consumer (`identity.contact`, `preferences`); writer of `outreach_history` | No shared record of what's already been sent, to whom, or when |
 | **[4] Research Agent** | Spec complete | Read-only consumer of `preferences` (industry/role scope) | Re-derives candidate targeting logic locally instead of reading it once |
@@ -71,7 +71,7 @@ Two concrete forcing functions:
 - Explicit semver versioning and migration strategy (`schema_version`).
 
 ### Out of Scope
-- Job-posting schema (owned by The Harvester).
+- Job-posting schema (owned by The Gleaner).
 - Automated LLM extraction prompts (ingestion pipeline concern).
 - Memory Module's internal SQLite table DDL (owned by Memory Module [8]).
 - Direct browser form filling or email dispatch (owned by Usher [7] and Chief of Staff [6]).

@@ -75,7 +75,7 @@ def normalize_component_name(name: str) -> str:
         return "conductor_orchestrator"
     if "bootstrap" in cleaned or "manual" in cleaned:
         return "bootstrap_manual"
-    if "gleaner" in cleaned or "harvester" in cleaned:
+    if "gleaner" in cleaned or "gleaner" in cleaned:
         return "gleaner"
     if "research" in cleaned:
         return "research_agent"

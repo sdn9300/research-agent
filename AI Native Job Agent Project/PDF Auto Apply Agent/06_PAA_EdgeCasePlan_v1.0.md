@@ -33,7 +33,7 @@ Each entry follows the same convention already used for the Sentiment Classifier
 | `EC-PAA-DOM-01` | Platform A/B-tests a redesigned apply-flow layout mid-operation | `fill()` raises element-not-found after timeout | Abort attempt → `FAILED`, `error_code=SELECTOR_MISS`; adapter flagged for health-check review | Medium — monitoring |
 | `EC-PAA-DOM-02` | Multi-step wizard inserts an unexpected intermediate step not in the adapter's known sequence | Expected next-step marker absent | → `MANUAL_REQUIRED`, screenshot of the unrecognized step captured | Medium |
 | `EC-PAA-DOM-03` | Submit control present but disabled pending an unrelated platform nag (e.g., "complete your profile first") | Submit element has a `disabled` attribute | → `MANUAL_REQUIRED`, reason recorded | Low |
-| `EC-PAA-DOM-04` | Job posting already expired/closed by the time the agent visits (Harvester's snapshot is stale) | Platform renders a "no longer accepting applications" banner | → `SKIPPED`, `error_code=POSTING_EXPIRED`; staleness signal fed back toward Harvester's freshness window | Low |
+| `EC-PAA-DOM-04` | Job posting already expired/closed by the time the agent visits (Gleaner's snapshot is stale) | Platform renders a "no longer accepting applications" banner | → `SKIPPED`, `error_code=POSTING_EXPIRED`; staleness signal fed back toward Gleaner's freshness window | Low |
 
 ## 3. Category MAP — Field Mapping Ambiguity
 
@@ -51,7 +51,7 @@ Each entry follows the same convention already used for the Sentiment Classifier
 | `EC-PAA-DAT-01` | Candidate Profile JSON missing a field the target form marks required | Pre-fill schema validation against the form's required-field set fails | Abort *before* touching the browser → `SKIPPED`, `error_code=PROFILE_INCOMPLETE`, missing fields listed | High |
 | `EC-PAA-DAT-02` | Candidate Profile JSON is stale relative to reality (e.g., education status changed) | `last_verified_at` timestamp exceeds a 30-day staleness threshold | Non-blocking warning surfaced at session start and logged into every attempt that session | Medium |
 | `EC-PAA-DAT-03` | AlignResume's tailored PDF was generated against an older Candidate Profile JSON version than the one currently in use | `TailoringRun.profile_version` hash mismatch | `MANUAL_REQUIRED`, flagged for AlignResume re-tailoring | Medium |
-| `EC-PAA-DAT-04` | Two near-duplicate postings from Harvester (same role, same company, different URLs) | Fuzzy match on `{company, title, location}` before attempting | Second occurrence → `SKIPPED` as `DUPLICATE_TARGET`, cross-referenced against Memory Module history | Low |
+| `EC-PAA-DAT-04` | Two near-duplicate postings from Gleaner (same role, same company, different URLs) | Fuzzy match on `{company, title, location}` before attempting | Second occurrence → `SKIPPED` as `DUPLICATE_TARGET`, cross-referenced against Memory Module history | Low |
 
 ## 5. Category SEC — Anti-Automation & Security
 
@@ -84,10 +84,10 @@ Each entry follows the same convention already used for the Sentiment Classifier
 
 | ID | Trigger | Detection | System Response | Severity |
 |---|---|---|---|---|
-| `EC-PAA-ETH-01` | Platform's Terms of Service explicitly and unambiguously prohibit automated submission | Manually curated per-platform compliance flag, set at adapter-registration time — never runtime-detected | That platform is excluded from Auto-Apply entirely at the config level; its Harvester-sourced postings route straight to `MANUAL_REQUIRED` | Critical — policy, not a bug |
+| `EC-PAA-ETH-01` | Platform's Terms of Service explicitly and unambiguously prohibit automated submission | Manually curated per-platform compliance flag, set at adapter-registration time — never runtime-detected | That platform is excluded from Auto-Apply entirely at the config level; its Gleaner-sourced postings route straight to `MANUAL_REQUIRED` | Critical — policy, not a bug |
 | `EC-PAA-ETH-02` | Job posting later identified as fraudulent or a scam listing | Research Agent's company-verification flag on the `JobApplicationTarget` | `SKIPPED`, never attempted | High |
 | `EC-PAA-ETH-03` | A screening question solicits information not legitimately required for the role (e.g., religion, marital status) | Field label matched against a maintained sensitive-question dictionary | `MANUAL_REQUIRED`, never auto-answered under any circumstance | High |
-| `EC-PAA-ETH-04` | Same posting reachable via two different Harvester channels, risking a recruiter seeing duplicate submissions | Cross-referenced at Candidate Profile / Memory Module level (cross-platform version of `EC-PAA-DAT-04`) | Only the higher-priority channel is attempted | Medium |
+| `EC-PAA-ETH-04` | Same posting reachable via two different Gleaner channels, risking a recruiter seeing duplicate submissions | Cross-referenced at Candidate Profile / Memory Module level (cross-platform version of `EC-PAA-DAT-04`) | Only the higher-priority channel is attempted | Medium |
 
 ## 9. Summary
 

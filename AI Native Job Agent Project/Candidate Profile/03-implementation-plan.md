@@ -20,13 +20,13 @@ Implementation aligns with **Unified CareerOS Phase 2 (Profile & Memory Core)**:
                             │                   Retrofits (M)             Wiring (M)                    Hardening (S)
                             │
                             └── Formally Resolves Usher's Phase 0
-                                & Harvester's Phase 0 Schema Blockers
+                                & Gleaner's Phase 0 Schema Blockers
 ```
 
 | Phase | Objective | Relative Effort | Target Exit Criteria |
 |---|---|---|---|
 | **Phase 0** | Schema Skeleton & Real-Data Fixtures | S (1–2 days) | 100% Pydantic validation on real candidate resume.pdf (Gate HG-1) |
-| **Phase 1** | Persistence, Atomic Write & Versioning | M (2–3 days) | Atomic crash safety verified (HG-3); unblocks Usher & Harvester Phase 0 |
+| **Phase 1** | Persistence, Atomic Write & Versioning | M (2–3 days) | Atomic crash safety verified (HG-3); unblocks Usher & Gleaner Phase 0 |
 | **Phase 2** | Mechanical Projections & AlignResume Retrofit | M (2–3 days) | Adapters verified; `to_resume_profile` feeds AlignResume without drift |
 | **Phase 3** | Field Ownership Enforcement & LangGraph Reducer | M (2–3 days) | Reducer raises `OwnershipViolationError` on adversarial writes (HG-4) |
 | **Phase 4** | FastMCP Server Tools, Telemetry & Hardening | S (1–2 days) | FastMCP endpoints active; 500+ history records load in < 50ms (MG-3) |
@@ -49,7 +49,7 @@ Implementation aligns with **Unified CareerOS Phase 2 (Profile & Memory Core)**:
 
 ### Phase 2 — Mechanical Projections & AlignResume Retrofit
 - Implement `to_resume_profile()` mapping canonical facts to AlignResume's domain model.
-- Implement `to_search_criteria()` for Harvester.
+- Implement `to_search_criteria()` for Gleaner.
 - Implement `to_outreach_context()` for Overture.
 - Implement `to_application_view()` for Usher.
 - Verify adapter projection fidelity and round-trip consistency.

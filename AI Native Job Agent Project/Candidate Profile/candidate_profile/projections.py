@@ -141,7 +141,7 @@ def to_resume_profile(profile: CandidateProfile) -> ResumeProfile:
 
 
 # ============================================================================
-# 2. Gleaner Projection (#1 — formerly Harvester)
+# 2. Gleaner Projection (#1 — formerly Gleaner)
 # ============================================================================
 
 class GleanerQuery(BaseModel):

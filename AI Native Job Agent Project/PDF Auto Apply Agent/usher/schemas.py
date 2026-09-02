@@ -80,8 +80,8 @@ class CandidateProfile(BaseModel):
 
 class JobApplicationTarget(BaseModel):
     """
-    Inbound job opportunity payload from The Harvester (Component 1).
-    Reconciled against Harvester's canonical schema.
+    Inbound job opportunity payload from The Gleaner (Component 1).
+    Reconciled against Gleaner's canonical schema.
     """
     model_config = ConfigDict(extra="ignore")
 

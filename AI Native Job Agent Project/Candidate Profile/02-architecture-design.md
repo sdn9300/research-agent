@@ -29,7 +29,7 @@ Candidate Profile is a canonical, versioned Pydantic v2 schema — not a backgro
 |                                                                                                   |
 |  READ-ONLY PROJECTION CONSUMERS (Zero-Drift Adapters)                                             |
 |  ──────────────────────────────────────────────────────                                          |
-|  [1] Harvester            ◄── preferences (via to_search_criteria)                                |
+|  [1] Gleaner            ◄── preferences (via to_search_criteria)                                |
 |  [4] Research Agent       ◄── preferences (industry/role scope)                                   |
 |  [2] AlignResume          ◄── identity, education, skills, experience (via to_resume_profile)     |
 |  [7] PDF Auto-Apply       ◄── identity, education, experience, tailoring (via to_application_view)|
@@ -167,7 +167,7 @@ class CandidateProfile(BaseModel):
 | `education` | Bootstrap / manual, human-gated | AlignResume, Usher | Full-list overwrite, human-gated |
 | `skills` | Bootstrap / manual + extractor, human-gated | AlignResume, Usher, Future-Fit | Key-merge on `name`; unverified default `False` |
 | `experience` | Bootstrap / manual, human-gated | AlignResume, Usher, Overture | Full-list overwrite / append, human-gated |
-| `preferences` | Manual, human-set | Harvester, Research Agent, Overture | Full-section overwrite, human-gated |
+| `preferences` | Manual, human-set | Gleaner, Research Agent, Overture | Full-section overwrite, human-gated |
 | `tailoring_history` | AlignResume (refs only) | Usher, Conductor | Append-only |
 | `outreach_history` | Overture (refs only) | Sentiment Classifier, Conductor | Append-only |
 | `application_history` | PDF Auto-Apply (refs only) | Conductor, Memory Module | Append-only |
@@ -225,7 +225,7 @@ def to_resume_profile(profile: CandidateProfile) -> ResumeProfile:
     )
 
 def to_search_criteria(preferences: ApplicationPreferences) -> SearchCriteria:
-    """Projects search preferences into Harvester's scraping criteria."""
+    """Projects search preferences into Gleaner's scraping criteria."""
     return SearchCriteria(
         roles=preferences.target_roles,
         locations=preferences.locations,

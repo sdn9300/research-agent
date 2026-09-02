@@ -12,7 +12,7 @@
 ## 1. Hard-Blocking Evaluation Gates (HG-1 to HG-6)
 
 > [!IMPORTANT]
-> All six hard-blocking gates must pass before any dependent sub-agent (Usher, Harvester, AlignResume) is authorized to build production dependencies on this schema.
+> All six hard-blocking gates must pass before any dependent sub-agent (Usher, Gleaner, AlignResume) is authorized to build production dependencies on this schema.
 
 | ID | Gate Name | Acceptance Procedure | Implementation Phase |
 |---|---|---|---|
@@ -49,6 +49,6 @@ pytest tests/test_profile_ownership.py -v
 # 3. Run atomic persistence crash simulation
 pytest tests/test_profile_persistence.py -v
 
-# 4. Run projection adapter tests (AlignResume, Harvester, Overture, Usher)
+# 4. Run projection adapter tests (AlignResume, Gleaner, Overture, Usher)
 pytest tests/test_profile_projections.py -v
 ```

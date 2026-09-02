@@ -23,7 +23,7 @@
         ┌────────────────────────┼─────────────────────────┐
         ▼                        ▼                          ▼
 ┌────────────────┐     ┌───────────────────┐     ┌──────────────────────┐
-│ (1) HARVESTER    │     │ (2) ALIGNRESUME    │     │ (10) CANDIDATE PROFILE │
+│ (1) GLEANER    │     │ (2) ALIGNRESUME    │     │ (10) CANDIDATE PROFILE │
 │ JobApplication   │     │ ResumeArtifact /   │     │      JSON              │
 │ Target           │     │ TailoringRun       │     │  (canonical facts)     │
 └────────┬─────────┘     └─────────┬──────────┘     └───────────┬────────────┘
@@ -60,7 +60,7 @@ Component 7 is designed to be invocable as a discrete node/tool within the LangG
 
 ## 3. Data Contracts / Schemas
 
-The following are **provisional contracts** proposed by this document. `JobApplicationTarget`'s upstream fields and `CandidateProfile`'s full shape must be reconciled against Harvester's and Component 10's actual finalized schemas before Phase 0 sign-off (Problem Statement §10).
+The following are **provisional contracts** proposed by this document. `JobApplicationTarget`'s upstream fields and `CandidateProfile`'s full shape must be reconciled against Gleaner's and Component 10's actual finalized schemas before Phase 0 sign-off (Problem Statement §10).
 
 ```python
 from enum import Enum
@@ -83,7 +83,7 @@ class JobApplicationTarget(BaseModel):
     title: str
     company: str
     apply_url: HttpUrl
-    source_platform: str            # from Harvester's canonical schema (provisional)
+    source_platform: str            # from Gleaner's canonical schema (provisional)
     detected_channel: Optional[ApplicationChannel] = None
 
 class ResumeArtifact(BaseModel):
@@ -128,7 +128,7 @@ Note the deliberate absence of any status value that means "probably worked." `A
 
 ## 4. Adapter Pattern
 
-Mirrors The Harvester's abstract adapter pattern directly — a deliberate, DRY reuse of an already-proven design rather than a new pattern invented for this component:
+Mirrors The Gleaner's abstract adapter pattern directly — a deliberate, DRY reuse of an already-proven design rather than a new pattern invented for this component:
 
 ```python
 from abc import ABC, abstractmethod
@@ -233,7 +233,7 @@ Playwright (Python), driven by the adapters above. See ADR-PAA-001 for the full 
 
 **Decision.** Any detected CAPTCHA/challenge is an immediate, hard trigger for `MANUAL_REQUIRED`: the agent pauses, screenshots the state, and hands control back to the candidate. It never attempts to solve, bypass, or outsource-solve such challenges.
 
-**Options Considered.** Third-party CAPTCHA-solving integration and stealth/fingerprint-evasion techniques were both rejected outright, on ethical and Terms-of-Service grounds — see Mission Plan §9. Note this is a materially different ethical context from The Harvester's read-only "stealth" discovery scraping: here the agent is authenticated and submitting data as an identified applicant, where circumvention carries a different, higher weight.
+**Options Considered.** Third-party CAPTCHA-solving integration and stealth/fingerprint-evasion techniques were both rejected outright, on ethical and Terms-of-Service grounds — see Mission Plan §9. Note this is a materially different ethical context from The Gleaner's read-only "stealth" discovery scraping: here the agent is authenticated and submitting data as an identified applicant, where circumvention carries a different, higher weight.
 
 **Consequences.** Some fraction of applications on more aggressively bot-defended platforms (notably LinkedIn) will always fall through to `MANUAL_REQUIRED`. This is an accepted, monitored ceiling — not a defect to "fix" through evasion.
 
@@ -247,7 +247,7 @@ Playwright (Python), driven by the adapters above. See ADR-PAA-001 for the full 
 
 **Decision.** Phase 1 targets **Naukri** only.
 
-**Rationale.** (a) Already a Harvester-scraped source, so job-target ingestion is solved. (b) Naukri's apply flow is heavily profile-based, narrowing Phase 1's field-mapping surface mostly to supplementary screening questions rather than a full contact-info form — a gentler ramp. (c) The dominant channel for the stated Kolkata/remote-India job search, so Phase 1 value lands immediately on the highest-volume channel rather than a low-traffic proof of concept.
+**Rationale.** (a) Already a Gleaner-scraped source, so job-target ingestion is solved. (b) Naukri's apply flow is heavily profile-based, narrowing Phase 1's field-mapping surface mostly to supplementary screening questions rather than a full contact-info form — a gentler ramp. (c) The dominant channel for the stated Kolkata/remote-India job search, so Phase 1 value lands immediately on the highest-volume channel rather than a low-traffic proof of concept.
 
 **Options Considered.** LinkedIn Easy Apply first was rejected for MVP — most standardized UI, but also the most aggressively monitored for automation, a worse platform to learn the architecture on. Indeed was a reasonable close second, kept as Phase 2's first addition given the existing Indeed MCP connector already in the toolchain for discovery.
 
@@ -269,7 +269,7 @@ Platform session cookies/tokens are stored locally, per platform, using Playwrig
 
 | Direction | Component | Contract |
 |---|---|---|
-| Inbound | (1) The Harvester | `JobApplicationTarget` (provisional — reconcile against Harvester's finalized 7-field schema) |
+| Inbound | (1) The Gleaner | `JobApplicationTarget` (provisional — reconcile against Gleaner's finalized 7-field schema) |
 | Inbound | (2) AlignResume | `ResumeArtifact` derived from `TailoringRun` |
 | Inbound | (10) Candidate Profile JSON | `CandidateProfile` (provisional shape, §3) |
 | Inbound (optional, enriching) | (4) Research Agent | Company brief text, improves Tier-3 draft quality; absence must never block an attempt |

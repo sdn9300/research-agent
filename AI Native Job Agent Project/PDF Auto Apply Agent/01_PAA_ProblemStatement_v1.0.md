@@ -8,21 +8,21 @@
 | Version | 1.0 |
 | Status | Draft — Pending Review |
 | Date | 27 August 2026 |
-| Depends On | Component 1 (The Harvester), Component 2 (AlignResume), Component 10 (Candidate Profile JSON) |
+| Depends On | Component 1 (The Gleaner), Component 2 (AlignResume), Component 10 (Candidate Profile JSON) |
 | Feeds Into | Component 6 (Conductor Orchestrator), Component 8 (Memory Module) |
 
 ---
 
 ## 1. Executive Summary
 
-The Harvester discovers relevant postings at scale and AlignResume tailors a resume for each one, but the pipeline currently terminates at *"a correct, tailored PDF exists on disk."* Everything past that point — opening the application, transcribing the same contact details for the two-hundredth time, uploading the right file, answering a handful of platform-specific questions, and clicking submit — is manual, repetitive, and does not scale with the throughput the earlier components are already capable of. Component 7 closes this gap: it is the CONDUCTOR component that converts a *tailored artifact* into a *submitted application*, without compromising the honesty guarantees the rest of the portfolio already enforces.
+The Gleaner discovers relevant postings at scale and AlignResume tailors a resume for each one, but the pipeline currently terminates at *"a correct, tailored PDF exists on disk."* Everything past that point — opening the application, transcribing the same contact details for the two-hundredth time, uploading the right file, answering a handful of platform-specific questions, and clicking submit — is manual, repetitive, and does not scale with the throughput the earlier components are already capable of. Component 7 closes this gap: it is the CONDUCTOR component that converts a *tailored artifact* into a *submitted application*, without compromising the honesty guarantees the rest of the portfolio already enforces.
 
 ## 2. Position in CONDUCTOR
 
 Component 7 sits in the **Application** layer, downstream of Discovery and Intelligence, upstream of Learning:
 
 ```
-[1] Harvester ──▶ job posting + apply URL
+[1] Gleaner ──▶ job posting + apply URL
 [2] AlignResume ──▶ tailored resume PDF
 [10] Candidate Profile JSON ──▶ canonical candidate facts
                               │
@@ -37,7 +37,7 @@ It is the only component in the pipeline that writes to a *third party's* system
 
 ## 3. Problem Definition
 
-As of this writing, three of the ten CONDUCTOR components are complete and produce real output at real volume: The Harvester surfaces postings, Future Fit contextualizes market demand, and AlignResume produces a genuinely tailored, guardrailed PDF per posting. The candidate's actual bottleneck has therefore already shifted — it is no longer "finding jobs" or "writing a resume," it is **the mechanical act of transcription**: copying the same name, email, phone number, education dates, and portfolio links into a new web form, dozens of times a week, across platforms with only superficially different layouts. This is precisely the kind of task that is high-volume, low-judgment, and error-prone under fatigue — exactly the profile of work that should be automated first, and exactly the profile of work where a careless automation would do more damage than a careless human, because the human at least notices when they've made an obvious typo.
+As of this writing, three of the ten CONDUCTOR components are complete and produce real output at real volume: The Gleaner surfaces postings, Future Fit contextualizes market demand, and AlignResume produces a genuinely tailored, guardrailed PDF per posting. The candidate's actual bottleneck has therefore already shifted — it is no longer "finding jobs" or "writing a resume," it is **the mechanical act of transcription**: copying the same name, email, phone number, education dates, and portfolio links into a new web form, dozens of times a week, across platforms with only superficially different layouts. This is precisely the kind of task that is high-volume, low-judgment, and error-prone under fatigue — exactly the profile of work that should be automated first, and exactly the profile of work where a careless automation would do more damage than a careless human, because the human at least notices when they've made an obvious typo.
 
 ## 4. Current State (As-Is)
 
@@ -52,7 +52,7 @@ Steps 1–5 repeat, close to identically, for every posting AlignResume tailors 
 
 ## 5. Desired State (To-Be)
 
-1. Conductor Orchestrator (Component 6) hands Component 7 a `JobApplicationTarget` (from Harvester) and a `ResumeArtifact` (from AlignResume).
+1. Conductor Orchestrator (Component 6) hands Component 7 a `JobApplicationTarget` (from Gleaner) and a `ResumeArtifact` (from AlignResume).
 2. Component 7 detects the platform, resolves as many form fields as it can with high confidence directly from Candidate Profile JSON, and explicitly declines to guess at the rest.
 3. The candidate reviews a completed **draft** — not a black box, a specific, inspectable, pre-filled form — and confirms or corrects it.
 4. On confirmation, Component 7 submits, uploads the correct resume, and returns a structured `ApplicationAttemptResult`, regardless of whether the attempt succeeded, needed a human, or failed outright.
@@ -105,7 +105,7 @@ Steps 1–5 repeat, close to identically, for every posting AlignResume tailors 
 ## 10. Assumptions & Dependencies
 
 - **Candidate Profile JSON (Component 10)** exposes, at minimum, contact details, education history, links, and an explicit `salary_expectation` / `notice_period` field where the candidate has chosen to set one. Its exact finalized schema is a dependency to reconcile before Phase 0 sign-off — Architecture Design §3 proposes a provisional shape.
-- **The Harvester (Component 1)** emits a job record containing, at minimum, a stable `job_id`, `apply_url`, and `source_platform`. The precise field names of Harvester's canonical schema are assumed compatible, not independently verified in this document.
+- **The Gleaner (Component 1)** emits a job record containing, at minimum, a stable `job_id`, `apply_url`, and `source_platform`. The precise field names of Gleaner's canonical schema are assumed compatible, not independently verified in this document.
 - **AlignResume (Component 2)** exposes a `TailoringRun` record with a resolvable file path and a version marker that can be checked against the current Candidate Profile JSON version (see Edge Case `EC-PAA-DAT-03`).
 - **Research Agent (Component 4)**, where available, supplies company context that improves the quality of free-text answers, but Component 7 must degrade gracefully — never block — when Research Agent output is absent.
 

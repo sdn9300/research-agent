@@ -20,7 +20,7 @@ Six phases, each with an explicit entry condition, deliverables, and exit gate �
 
 **Objective.** Lock down data contracts, environment, and integration seams before any adapter code is written.
 
-**Entry criteria.** `PAA-AD-1.0` reviewed and accepted; Candidate Profile JSON and Harvester schema dependencies at least provisionally reconciled (Problem Statement §10).
+**Entry criteria.** `PAA-AD-1.0` reviewed and accepted; Candidate Profile JSON and Gleaner schema dependencies at least provisionally reconciled (Problem Statement §10).
 
 **Deliverables**
 - `schemas.py` — all Pydantic v2 models from Architecture Design §3.
@@ -35,7 +35,7 @@ Six phases, each with an explicit entry condition, deliverables, and exit gate �
 3. Implement the `attempts/` audit-log writer, independent of any adapter, and test it against a dummy `ApplicationAttemptResult`.
 4. Define `config.yaml` structure and the confidence threshold constant (0.85, Architecture Design §5).
 5. Write the `BaseATSAdapter` interface and one no-op test adapter to confirm the interface is actually implementable end-to-end.
-6. Reconcile schema field names against Harvester's and Component 10's actual outputs where available; document any remaining mismatch as an open item.
+6. Reconcile schema field names against Gleaner's and Component 10's actual outputs where available; document any remaining mismatch as an open item.
 
 **Exit gate.** Schemas validate against fixtures; a smoke test opens Playwright, writes one dummy attempt record, and closes cleanly.
 
@@ -90,7 +90,7 @@ Six phases, each with an explicit entry condition, deliverables, and exit gate �
 - Expanded Tier-0 dictionaries per vendor.
 
 **Tasks**
-1. Collect a sample set of real Greenhouse/Lever/Workday postings surfaced via Research Agent and Harvester.
+1. Collect a sample set of real Greenhouse/Lever/Workday postings surfaced via Research Agent and Gleaner.
 2. Build vendor detection first (cheap, deterministic), before any field-mapping work.
 3. Implement each vendor sub-adapter's Tier-0 dictionary from the sample set.
 4. Implement `GenericATSAdapter`'s LLM-assisted fallback, explicitly bounded to never auto-submit — always `DRAFT_PENDING_REVIEW` or `MANUAL_REQUIRED` given the higher uncertainty here.
@@ -105,7 +105,7 @@ Six phases, each with an explicit entry condition, deliverables, and exit gate �
 **Deliverables**
 - Conductor Orchestrator (Component 6) can invoke Component 7 as a pipeline step, passing `JobApplicationTarget` and `CandidateProfile` and receiving `ApplicationAttemptResult`.
 - `ApplicationAttemptResult` records persisted in the format Memory Module (Component 8) expects to consume.
-- One complete, unassisted, end-to-end run: Harvester discovers → AlignResume tailors → Auto-Apply Agent attempts → Memory Module records — for at least one real job.
+- One complete, unassisted, end-to-end run: Gleaner discovers → AlignResume tailors → Auto-Apply Agent attempts → Memory Module records — for at least one real job.
 
 **Tasks**
 1. Define the exact invocation contract Conductor will use (function signature or LangGraph node interface).

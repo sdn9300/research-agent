@@ -10,7 +10,7 @@
 | Suite version | 1.0 |
 | Date | 27 August 2026 |
 
-This suite follows the same six-artifact Spec-Driven Development structure already used for The Harvester (Component 1) and the Sentiment Classifier (Component 9): a document is authoritative for its own domain, cross-references the others by ID rather than repeating their content, and is versioned independently so a later revision to, say, the Evaluation Plan doesn't force a re-issue of the Architecture Design.
+This suite follows the same six-artifact Spec-Driven Development structure already used for The Gleaner (Component 1) and the Sentiment Classifier (Component 9): a document is authoritative for its own domain, cross-references the others by ID rather than repeating their content, and is versioned independently so a later revision to, say, the Evaluation Plan doesn't force a re-issue of the Architecture Design.
 
 ### Document Set
 
@@ -31,7 +31,7 @@ For a first read: **1 → 2 → 3 → 4 → 5 → 6**. For a working session whe
 
 ```
 DATA LAYER            [10] Candidate Profile JSON  ─┐
-DISCOVERY              [1] The Harvester            ─┼─▶  [7] PDF AUTO-APPLY AGENT  ─▶  [8] Memory Module
+DISCOVERY              [1] The Gleaner            ─┼─▶  [7] PDF AUTO-APPLY AGENT  ─▶  [8] Memory Module
 APPLICATION             [2] AlignResume              ─┘         (this suite)
 COORDINATION           [6] Conductor Orchestrator  ──────────▶  invokes [7] as a pipeline step
 ```
@@ -40,7 +40,7 @@ Component 7 sits in the Application layer. It is the last automated step before 
 
 ### One-Paragraph Summary
 
-The Harvester finds jobs and AlignResume tailors a resume for each one, but the final, most repetitive step — opening the application, typing the same eleven fields for the two-hundredth time, uploading the right PDF, and clicking submit — is still entirely manual. Component 7 automates that final mile using a tiered, cost-aware field-resolution strategy (deterministic first, LLM-assisted only where genuinely needed), a per-platform adapter pattern identical in spirit to The Harvester's, and a human-confirmed **DRAFT** mode as the default — because a wrong field submitted under a real name to a real recruiter is a materially worse failure than a slow one. Autonomous **AUTO** mode is something the system earns per platform, not something it starts with.
+The Gleaner finds jobs and AlignResume tailors a resume for each one, but the final, most repetitive step — opening the application, typing the same eleven fields for the two-hundredth time, uploading the right PDF, and clicking submit — is still entirely manual. Component 7 automates that final mile using a tiered, cost-aware field-resolution strategy (deterministic first, LLM-assisted only where genuinely needed), a per-platform adapter pattern identical in spirit to The Gleaner's, and a human-confirmed **DRAFT** mode as the default — because a wrong field submitted under a real name to a real recruiter is a materially worse failure than a slow one. Autonomous **AUTO** mode is something the system earns per platform, not something it starts with.
 
 ### Cross-Document Reference Key
 
