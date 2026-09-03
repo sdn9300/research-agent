@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-artifacts/
-skill_trend_analysis/
-eval/results/
-observability/*.db
-**/__pycache__/
-*.pyc
-*.db
-=======
 # Environments & Secrets
 .env
 .env.*
@@ -14,6 +5,19 @@ observability/*.db
 secrets.toml
 token.json
 credentials.json
+api_keys.json
+
+# Masai Project Notes & Lecture Materials (Private)
+Masai Project Docs/
+Masai_June_Docs/
+extracted_materials/
+extracted_text/
+*.pdf
+W*-*.pdf
+W*_Prompt.md
+W*_Script.md
+W*_S*.md
+W1-S2-Prompts
 
 # Python
 __pycache__/
@@ -40,4 +44,6 @@ ENV/
 Thumbs.db
 .tmp.driveupload/
 *.log
->>>>>>> 14afa20 (feat: rebrand to CareerHelm and Gleaner with complete CareerOS Platform blueprint and W4-S2 updates)
+artifacts/
+eval/results/
+observability/*.db

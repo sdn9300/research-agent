@@ -8,6 +8,18 @@ secrets.json
 credentials.json
 api_keys.json
 
+# Masai Project Notes & Lecture Materials (Private)
+Masai Project Docs/
+Masai_June_Docs/
+extracted_materials/
+extracted_text/
+*.pdf
+W*-*.pdf
+W*_Prompt.md
+W*_Script.md
+W*_S*.md
+W1-S2-Prompts
+
 # SQLite Databases & Local Storage
 *.db
 *.sqlite
